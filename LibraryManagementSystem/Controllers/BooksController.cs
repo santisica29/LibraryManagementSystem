@@ -59,7 +59,7 @@ internal class BooksController : IBaseController
 
     public void DeleteItem()
     {
-        if (MockDatabase.LibraryItems.Count == 0)
+        if (MockDatabase.LibraryItems.OfType<Book>().Count() == 0)
         {
             AnsiConsole.MarkupLine("[red]No books available to delete.[/]");
             Console.ReadKey();
@@ -67,10 +67,10 @@ internal class BooksController : IBaseController
         }
 
         var bookToDelete = AnsiConsole.Prompt(
-            new SelectionPrompt<LibraryItem>()
+            new SelectionPrompt<Book>()
             .Title("Select a [red]book[/] to delete:")
-            .UseConverter(b => $"{b.Name}")
-            .AddChoices(MockDatabase.LibraryItems));
+            .UseConverter(b => $"{b.Name} - {b.Author}")
+            .AddChoices(MockDatabase.LibraryItems.OfType<Book>()));
 
         if (MockDatabase.LibraryItems.Remove(bookToDelete))
         {
