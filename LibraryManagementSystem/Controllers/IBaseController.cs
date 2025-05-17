@@ -2,6 +2,6 @@
 internal interface IBaseController
 {
     void ViewItems();
-    void AddItems();
+    void AddItem();
     void DeleteItem();
 }
