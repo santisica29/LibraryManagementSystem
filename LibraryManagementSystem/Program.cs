@@ -1,6 +1,6 @@
 ﻿using Spectre.Console;
 
-var menuChoices = new string[3] { "View Books", "Add Book", "Delete Book" };
+var menuChoices = new MenuOption[3] { MenuOption.ViewBooks, MenuOption.AddBook, MenuOption.DeleteBook };
 
 var books = new List<string>()
 {
@@ -13,13 +13,13 @@ while (true)
     Console.Clear();
 
     var choice = AnsiConsole.Prompt(
-    new SelectionPrompt<string>()
-    .Title("What do you want to do next?")
-    .AddChoices(menuChoices));
+            new SelectionPrompt<MenuOption>()
+            .Title("What do you want to do next?")
+            .AddChoices(Enum.GetValues<MenuOption>()));
 
     switch (choice)
     {
-        case "View Books":
+        case MenuOption.ViewBooks:
             AnsiConsole.MarkupLine("[yellow]List of Books:[/]");
 
             foreach (var book in books)
@@ -31,7 +31,7 @@ while (true)
             Console.ReadKey();
 
             break;
-        case "Add Book":
+        case MenuOption.AddBook:
             var title = AnsiConsole.Ask<string>("Enter the [green]title[/] of the book to add:");
 
             if (books.Contains(title))
@@ -47,7 +47,7 @@ while (true)
             AnsiConsole.MarkupLine("Press Any Key to Continue.");
             Console.ReadKey();
             break;
-        case "Delete Book":
+        case MenuOption.DeleteBook:
             if (books.Count == 0)
             {
                 AnsiConsole.MarkupLine("[red]No books available to delete.[/]");
@@ -73,6 +73,13 @@ while (true)
             Console.ReadKey();
             break;
     }
+}
+
+enum MenuOption
+{
+    ViewBooks,
+    AddBook,
+    DeleteBook
 }
 
 
