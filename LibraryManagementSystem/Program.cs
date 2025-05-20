@@ -1,6 +1,8 @@
 ﻿using LibraryManagementSystem;
 
-UserInterface.MainMenu();
+UserInterface userInterface = new();
+userInterface.MainMenu();
+
 
 
 
