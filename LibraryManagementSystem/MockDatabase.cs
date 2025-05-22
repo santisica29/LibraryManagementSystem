@@ -1,4 +1,6 @@
-﻿namespace LibraryManagementSystem;
+﻿using LibraryManagementSystem.Models;
+
+namespace LibraryManagementSystem;
 internal static class MockDatabase
 {
     internal static List<Book> Books = new()

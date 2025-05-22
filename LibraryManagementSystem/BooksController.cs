@@ -1,4 +1,5 @@
-﻿using Spectre.Console;
+﻿using LibraryManagementSystem.Models;
+using Spectre.Console;
 
 namespace LibraryManagementSystem;
 internal class BooksController
