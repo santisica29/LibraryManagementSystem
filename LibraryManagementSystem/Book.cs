@@ -1,8 +1,8 @@
 ﻿namespace LibraryManagementSystem;
 internal class Book
 {
-    string Name = "Unknown";
-    int Pages = 0;
+    public string Name { get; set; } = "Unknown";
+    public int Pages { get; set; } = 0;
 
     internal Book()
     {
