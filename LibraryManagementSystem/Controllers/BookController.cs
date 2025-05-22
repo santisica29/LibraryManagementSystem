@@ -2,7 +2,7 @@
 using Spectre.Console;
 
 namespace LibraryManagementSystem.Controllers;
-internal class BooksController : IBaseController
+internal class BookController : IBaseController
 {
     public void ViewItems()
     {
